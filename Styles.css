@@ -1,0 +1,208 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling with Background Image and Overlay */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('https://wallpapers.com/images/featured/best-travel-background-04ml2h9wywaoo6ei.jpg'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the entire background */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed; /* Keeps the image fixed during scrolling */
+  color: #fff; /* White text for better readability */
+  line-height: 1.6;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Black overlay with 60% transparency */
+  z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent navbar */
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  top: 1;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo a {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffc107;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5em;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Left Menu */
+.left-menu {
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  padding: 20px;
+  border-right: 2px solid #444;
+  transition: width 0.3s, visibility 0.3s;
+  color: #fff;
+  display: block;
+}
+
+.left-menu.collapsed {
+  width: 0;
+  visibility: hidden;
+  padding: 0;
+  border: none;
+}
+
+/* Ensure the collapse button stays visible even when the menu is collapsed */
+.left-menu .collapse-btn {
+  position: absolute; /* Position it fixed within the menu */
+  top: 50px; /* Adjust this value to move the button down */
+  left: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  z-index: 10; /* Ensure it stays on top */
+}
+
+.left-menu ul {
+  list-style: none;
+  display: block;
+}
+
+.left-menu ul li {
+  margin-bottom: 15px;
+}
+
+.left-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.left-menu ul li a:hover {
+  color: #ffc107;
+}
+
+/* Main Content */
+.container {
+  display: flex;
+  padding-top: 70px;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  margin: 10px;
+  color: #fff; /* White text directly on the background */
+}
+
+.content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* Text shadow for better readability */
+}
+
+.content p {
+  font-size: 1.2em;
+  line-height: 1.8;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Text shadow for better readability */
+}
+
+/* Right Panel */
+.right-panel {
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  padding: 20px;
+  border-left: 2px solid #444;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent footer */
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .container {
+      flex-direction: column;
+  }
+
+  .left-menu {
+      display: none;
+  }
+
+  .right-panel {
+      display: none;
+  }
+
+  .content {
+      margin: 10px;
+  }
+
+  .collapse-btn {
+      display: block;
+  }
+
+  .menu-toggle {
+      display: block;
+  }
+}
